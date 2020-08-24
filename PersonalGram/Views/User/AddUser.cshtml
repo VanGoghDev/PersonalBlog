@@ -1,0 +1,23 @@
+@using System.Web.UI.WebControls
+@model PersonalGram.Models.User
+
+<h2>Sign up</h2>
+
+@using (Html.BeginForm("AddUser", "User", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    @Html.TextBoxFor(x => x.Name)
+                    <label>First Name</label>
+                </div>
+                <div class="input-field col s6">
+                    @Html.TextBoxFor(x => x.Age)
+                    <label>Age</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input class="wave s-effect waves-light btn" type="submit" value="Sign up"/>
+}

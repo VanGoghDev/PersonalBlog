@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Use this area to provide additional information.</p>
+<button id="generate_random_points">asda</button>
+<script>
+$("#generate_random_points").click(function() {
+    $.ajax({
+        type: 'POST',
+        url: '../Home/AddUser',
+        success: function () {
+        },
+        error: function () {
+            alert('error')
+        }
+    })
+})
+</script>
