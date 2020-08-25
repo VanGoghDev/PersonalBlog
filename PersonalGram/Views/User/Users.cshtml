@@ -1,8 +1,33 @@
-@model dynamic
+@model List<PersonalGram.Models.User>
 
-@{
-    ViewBag.Title = "title";
-    Layout = "_Layout";
-}
+<h2>Users</h2>
+<a class="waves-effect waves-light btn-floating" href=@Url.Action("AddUser", "User")>
+    <i class="material-icons delete">add</i>
+</a>
 
-<h2>title</h2>
+<table class="highlight striped centered">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th class="delete-column">Delete</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr data-id="@item.Id">
+            <td>@item.Name</td>
+            <td>@item.Age</td>
+            <td class="delete-column">
+                
+                <a class="waves-effect waves-light btn red darken-1 delete-btn" data-id="@item.Id">
+                    <i class="material-icons delete">delete</i></a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<script src="~/Scripts/Pages/Users.js"></script>
