@@ -167,7 +167,7 @@
         <Content Include="Scripts\modernizr-2.8.3.js" />
         <Content Include="Scripts\Pages\index.js" />
         <Content Include="Scripts\Pages\Users.js" />
-        <Content Include="Views\User\AddUser.cshtml" />
+        <Content Include="Views\User\User.cshtml" />
         <Content Include="Views\User\Users.cshtml" />
         <Content Include="Web.config" />
         <Content Include="Web.Debug.config">

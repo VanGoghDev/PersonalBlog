@@ -1,9 +1,10 @@
 @model List<PersonalGram.Models.User>
 <div id="app">
-<h2>Users</h2>
-<a class="waves-effect waves-light btn-floating" href=@Url.Action("AddUser", "User")>
-    <i class="material-icons delete">add</i>
-</a>
+    <h2>Users</h2>
+    
+    <a class="waves-effect waves-light btn-floating" href=@Url.Action("User", "User", new {id = -1})>
+        <i class="material-icons delete">add</i>
+    </a>
 
     <table class="highlight striped centered">
         <thead>
@@ -18,12 +19,13 @@
         @foreach (var item in Model)
         {
             <tr data-id="@item.Id">
-                <td>@item.Name</td>
+                <td><a href=@Url.Action("User", "User", new {id = item.Id})>@item.Name</a></td>
                 <td>@item.Age</td>
                 <td class="delete-column">
-                
-                    <a class="waves-effect waves-light btn red darken-1 delete-btn" data-id="@item.Id" v-on:click="deleteUser(@item.Id)">
-                        <i class="material-icons delete">delete</i></a>
+                    <a class="waves-effect waves-light btn red darken-1 delete-btn" 
+                       data-id="@item.Id" v-on:click="deleteUser(@item.Id)">
+                        <i class="material-icons delete">delete</i>
+                    </a>
                 </td>
             </tr>
         }
