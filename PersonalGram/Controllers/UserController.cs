@@ -37,7 +37,6 @@ namespace PersonalGram.Controllers
             }
             var user = _userContext.Users.FirstOrDefault(p => p.Id == id);
             return View(user);
-
         }
 
         [HttpPost]

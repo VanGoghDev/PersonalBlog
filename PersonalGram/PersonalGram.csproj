@@ -52,9 +52,14 @@
           <Private>True</Private>
         </Reference>
         <Reference Include="Microsoft.CSharp" />
+        <Reference Include="mscorlib" />
         <Reference Include="System" />
         <Reference Include="System.Data" />
         <Reference Include="System.Drawing" />
+        <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="System.Web.DynamicData" />
         <Reference Include="System.Web.ApplicationServices" />
         <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -141,6 +146,7 @@
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
+        <Content Include="Content\File.txt" />
         <Content Include="Content\MyTable.css" />
         <Content Include="favicon.ico" />
         <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -165,8 +171,10 @@
         <Content Include="Scripts\jquery.validate.unobtrusive.js" />
         <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
         <Content Include="Scripts\modernizr-2.8.3.js" />
+        <Content Include="Scripts\Pages\Experiment.js" />
         <Content Include="Scripts\Pages\index.js" />
         <Content Include="Scripts\Pages\Users.js" />
+        <Content Include="Views\Home\Experiment.cshtml" />
         <Content Include="Views\User\User.cshtml" />
         <Content Include="Views\User\Users.cshtml" />
         <Content Include="Web.config" />
