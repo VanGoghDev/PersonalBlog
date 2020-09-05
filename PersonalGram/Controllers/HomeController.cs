@@ -37,19 +37,28 @@ namespace PersonalGram.Controllers
         public ActionResult GetFile()
         {
             string path = ConfigurationManager.AppSettings["Photo"];
+            string path2 = ConfigurationManager.AppSettings["Photo2"];
             var fileData = System.IO.File.ReadAllBytes(path);
-
+            var anotherFileData = System.IO.File.ReadAllBytes(path2);
+            
             byte[] zipData;
+            byte[][] filesData = new byte[2][];
+            filesData[0] = fileData;
+            filesData[1] = anotherFileData;
+
             using (var memoryStream = new MemoryStream())
             {
                 using (var archive = new ZipArchive(memoryStream, ZipArchiveMode.Create, true))
                 {
-                    var demoFile = archive.CreateEntry("photoInZip.jpg");
-
-                    using (var entryStream = demoFile.Open())
-                    using (var streamWriter = new BinaryWriter(entryStream))
+                    
+                    for (var i = 0; i < filesData.Length; i++)
                     {
-                        streamWriter.Write(fileData);
+                        var demoFile = archive.CreateEntry($"Photo{i}.jpg");
+                        using (var entryStream = demoFile.Open())
+                        using (var streamWriter = new BinaryWriter(entryStream))
+                        {
+                            streamWriter.Write(filesData[i]);
+                        }
                     }
                 }
 
