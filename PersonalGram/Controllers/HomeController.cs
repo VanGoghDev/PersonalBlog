@@ -25,15 +25,17 @@ namespace PersonalGram.Controllers
             'SPUTNIK' : {
                 '/SPUTNIK/': {
                     'sputnik_rw': {
-                        'quota':'1073741824',
-                        'deletedir':1,
-                        'cur_size':'4096',
-                        'rename':1,
-                        'view':1,
-                        'makedir':1,
-                        'read':1,
-                        'delete':1,
-                        'write':1
+                        'FTP': {
+                            'quota':'1073741824',
+                            'deletedir':1,
+                            'cur_size':'4096',
+                            'rename':1,
+                            'view':1,
+                            'makedir':1,
+                            'read':1,
+                            'delete':1,
+                            'write':1
+                        }
                     },
                     'sputnik': {
                         'quota':'1073741824',

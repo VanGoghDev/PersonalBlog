@@ -22,27 +22,36 @@ namespace PersonalGram.Models
         {
             ResourceCollection resourceCollection = new ResourceCollection();
             JObject jo = JObject.Load(reader);
-            string quota = (string)jo["qouta"];
-            var prop = jo.First.First;
 
-            // по всем директориям которые есть в ресурсе
-            foreach (JProperty child in prop.Children())
+            foreach (var prop in jo.Children())
             {
-                // получаем все логины для директории
-                var logins = child.First;
-                
-                // Для каждого логина создаем ресурс с полями
-                foreach (JProperty login in logins)
+                var prp = prop.First;
+                // по всем директориям которые есть в ресурсе
+                foreach (JProperty child in prp.Children())
                 {
-                    var test = 2;
-                    Resource resource = new Resource
+                    // получаем все логины для директории
+                    var logins = child.First;
+                
+                    // Для каждого логина создаем ресурс с полями
+                    foreach (JProperty login in logins)
                     {
-                        Name = login.Name,
-                        ResourceProperties = JsonConvert.DeserializeObject<ResourceProperties>(login.First.ToString())
-                    };
-                    resourceCollection.resoures.Add(resource);
+                        var test = 2;
+                        var ftpJson = login.First.SelectToken("FTP");
+                        if (ftpJson == null)
+                            ftpJson = "";
+                        Resource resource = new Resource
+                        {
+                            Name = login.Name,
+                            FTP = JsonConvert.DeserializeObject<ResourceProperties>(ftpJson.ToString())
+                        };
+                        resourceCollection.resoures.Add(resource);
+                    }
                 }
             }
+            
+            //var prop = jo.First.First;
+
+            
             
             
             return resourceCollection;
