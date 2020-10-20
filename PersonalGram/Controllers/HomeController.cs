@@ -38,13 +38,145 @@ namespace PersonalGram.Controllers
                         }
                     },
                     'sputnik': {
-                        'quota':'1073741824',
-                        'makedir':1,
-                        'cur_size':'4096',
-                        'write':1
+                        'FTP': {
+                            'quota':'1073741824',
+                            'makedir':1,
+                            'cur_size':'4096',
+                            'write':1
+                        }
                     }
                 }
-            }}";
+            },
+            'GUEST': {
+                '/GUEST/MARKETING/': {
+                  'Marketing': {
+                    'FTP': {
+                      'rename': 1,
+                      'makedir': 1,
+                      'view': 1,
+                      'read': 1,
+                      'write': 1
+                    }
+                  }
+                },
+                '/GUEST/': {
+                  'avid': {
+                    'INT': {
+                      'view': 1,
+                      'read': 1
+                    }
+                  },
+                  'ADementiev': {
+                    'FTP': {
+                      'view': 1,
+                      'read': 1
+                    },
+                    'WEB': {
+                      'view': 1,
+                      'read': 1
+                    },
+                    'INT': {
+                      'view': 1,
+                      'read': 1
+                    }
+                  },
+                  'newsorg': {
+                    'INT': {
+                      'quota': '53687091200',
+                      'deletedir': 1,
+                      'cur_size': '4096',
+                      'rename': 1,
+                      'share': 1,
+                      'view': 1,
+                      'makedir': 1,
+                      'read': 1,
+                      'delete': 1,
+                      'write': 1
+                    }
+                  },
+                  'dashulga': {
+                    'FTP': {
+                      'view': 1,
+                      'read': 1
+                    },
+                    'WEB': {
+                      'view': 1,
+                      'read': 1
+                    }
+                  },
+                  'guest': {
+                    'FTP': {
+                      'share': 1,
+                      'makedir': 1,
+                      'view': 1,
+                      'read': 1,
+                      'write': 1
+                    },
+                    'WEB': {
+                      'share': 1,
+                      'makedir': 1,
+                      'view': 1,
+                      'read': 1,
+                      'write': 1
+                    }
+                  },
+                  'salebedeva': {
+                    'FTP': {
+                      'quota': '549755813888',
+                      'deletedir': 1,
+                      'cur_size': '4096',
+                      'rename': 1,
+                      'view': 1,
+                      'makedir': 1,
+                      'read': 1,
+                      'delete': 1,
+                      'write': 1
+                    },
+                    'WEB': {
+                      'quota': '549755813888',
+                      'deletedir': 1,
+                      'cur_size': '4096',
+                      'rename': 1,
+                      'view': 1,
+                      'makedir': 1,
+                      'read': 1,
+                      'delete': 1,
+                      'write': 1
+                    }
+                  }
+                },
+                'deletion': '30',
+                '/GUEST/CHTO_PROISHODIT/': {
+                  'avid': {
+                    'INT': {
+                      'view': 1,
+                      'read': 1
+                    }
+                  },
+                  'ADementiev': {
+                    'INT': {
+                      'view': 1,
+                      'read': 1
+                    }
+                  },
+                  'newsorg': {
+                    'INT': {
+                      'quota': '53687091200',
+                      'deletedir': 1,
+                      'cur_size': '4096',
+                      'rename': 1,
+                      'share': 1,
+                      'view': 1,
+                      'makedir': 1,
+                      'read': 1,
+                      'delete': 1,
+                      'write': 1
+                    }
+                  }
+                }
+              }
+
+            }";
             //Resource resource = Newtonsoft.Json.JsonConvert.DeserializeObject<Resource>(jsonString);
             var resource = JsonConvert.DeserializeObject<ResourceCollection>(jsonString);
             return View();

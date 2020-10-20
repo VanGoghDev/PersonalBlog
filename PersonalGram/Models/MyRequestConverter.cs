@@ -23,7 +23,7 @@ namespace PersonalGram.Models
             ResourceCollection resourceCollection = new ResourceCollection();
             JObject jo = JObject.Load(reader);
 
-            foreach (var prop in jo.Children())
+            foreach (JProperty prop in jo.Children())
             {
                 var prp = prop.First;
                 // по всем директориям которые есть в ресурсе
@@ -35,14 +35,16 @@ namespace PersonalGram.Models
                     // Для каждого логина создаем ресурс с полями
                     foreach (JProperty login in logins)
                     {
-                        var test = 2;
-                        var ftpJson = login.First.SelectToken("FTP");
-                        if (ftpJson == null)
-                            ftpJson = "";
+                        var ftpJson = login.First.SelectToken("FTP") ?? "";
+                        var webJson = login.First.SelectToken("WEB") ?? "";
+                        var lanJson = login.First.SelectToken("INT") ?? "";
                         Resource resource = new Resource
                         {
-                            Name = login.Name,
-                            FTP = JsonConvert.DeserializeObject<ResourceProperties>(ftpJson.ToString())
+                            Name = prop.Name,
+                            Login = login.Name,
+                            FTP = JsonConvert.DeserializeObject<ResourceProperties>(ftpJson.ToString()),
+                            WEB = JsonConvert.DeserializeObject<ResourceProperties>(webJson.ToString()),
+                            LAN = JsonConvert.DeserializeObject<ResourceProperties>(lanJson.ToString())
                         };
                         resourceCollection.resoures.Add(resource);
                     }
