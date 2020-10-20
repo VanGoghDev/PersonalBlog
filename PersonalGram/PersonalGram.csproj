@@ -131,6 +131,7 @@
         <Compile Include="App_Start\FilterConfig.cs" />
         <Compile Include="App_Start\RouteConfig.cs" />
         <Compile Include="Controllers\HomeController.cs" />
+        <Compile Include="Controllers\PhotoController.cs" />
         <Compile Include="Controllers\UserController.cs" />
         <Compile Include="Global.asax.cs">
             <DependentUpon>Global.asax</DependentUpon>
@@ -139,9 +140,20 @@
         <Compile Include="Migrations\202008231945477_AddPosts.Designer.cs">
           <DependentUpon>202008231945477_AddPosts.cs</DependentUpon>
         </Compile>
+        <Compile Include="Migrations\202009051833102_PhotoMigration.cs" />
+        <Compile Include="Migrations\202009051833102_PhotoMigration.Designer.cs">
+          <DependentUpon>202009051833102_PhotoMigration.cs</DependentUpon>
+        </Compile>
         <Compile Include="Migrations\Configuration.cs" />
         <Compile Include="Models\BlogDbContext.cs" />
+        <Compile Include="Models\Context\PhotoContext.cs" />
         <Compile Include="Models\Context\UserContext.cs" />
+        <Compile Include="Models\MyRequestConverter.cs" />
+        <Compile Include="Models\PhotoModels\Photo.cs" />
+        <Compile Include="Models\PlayGround.cs" />
+        <Compile Include="Models\Resource.cs" />
+        <Compile Include="Models\ResourceCollection.cs" />
+        <Compile Include="Models\ResourceProperties.cs" />
         <Compile Include="Models\User.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
@@ -175,6 +187,8 @@
         <Content Include="Scripts\Pages\index.js" />
         <Content Include="Scripts\Pages\Users.js" />
         <Content Include="Views\Home\Experiment.cshtml" />
+        <Content Include="Views\Photo\Index.cshtml" />
+        <Content Include="Views\Photo\UploadPhoto.cshtml" />
         <Content Include="Views\User\User.cshtml" />
         <Content Include="Views\User\Users.cshtml" />
         <Content Include="Web.config" />
@@ -207,6 +221,9 @@
     <ItemGroup>
       <EmbeddedResource Include="Migrations\202008231945477_AddPosts.resx">
         <DependentUpon>202008231945477_AddPosts.cs</DependentUpon>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Migrations\202009051833102_PhotoMigration.resx">
+        <DependentUpon>202009051833102_PhotoMigration.cs</DependentUpon>
       </EmbeddedResource>
     </ItemGroup>
     <PropertyGroup>

@@ -1,8 +1,11 @@
-﻿using System.Configuration;
+﻿using System.Collections.Generic;
+using System.Configuration;
 using System.Drawing;
 using System.Web.Mvc;
 using System.IO;
 using System.IO.Compression;
+using Newtonsoft.Json;
+using PersonalGram.Models;
 using PersonalGram.Models.Context;
 
 namespace PersonalGram.Controllers
@@ -13,6 +16,35 @@ namespace PersonalGram.Controllers
 
         public ActionResult Index()
         {
+            //PlayGround playGround = new PlayGround();
+            //playGround.StonesAndJewelry("acb", "aabbccd");
+            //playGround.StonesAndJewelry();
+            
+            
+            string jsonString = @"{
+            'SPUTNIK' : {
+                '/SPUTNIK/': {
+                    'sputnik_rw': {
+                        'quota':'1073741824',
+                        'deletedir':1,
+                        'cur_size':'4096',
+                        'rename':1,
+                        'view':1,
+                        'makedir':1,
+                        'read':1,
+                        'delete':1,
+                        'write':1
+                    },
+                    'sputnik': {
+                        'quota':'1073741824',
+                        'makedir':1,
+                        'cur_size':'4096',
+                        'write':1
+                    }
+                }
+            }}";
+            //Resource resource = Newtonsoft.Json.JsonConvert.DeserializeObject<Resource>(jsonString);
+            var resource = JsonConvert.DeserializeObject<ResourceCollection>(jsonString);
             return View();
         }
 
