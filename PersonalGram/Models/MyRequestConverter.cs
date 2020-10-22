@@ -46,6 +46,23 @@ namespace PersonalGram.Models
                             WEB = JsonConvert.DeserializeObject<ResourceProperties>(webJson.ToString()),
                             LAN = JsonConvert.DeserializeObject<ResourceProperties>(lanJson.ToString())
                         };
+                        
+                        if (resource.FTP != null) 
+                            resource.FTP.protocolType = "FTP/";
+                        if (resource.WEB != null) 
+                            resource.WEB.protocolType = "WEB/";
+                        if (resource.LAN != null) 
+                            resource.LAN.protocolType = "LAN/";
+                        
+                        if (resource.FTP == null) 
+                            resource.FTP = new ResourceProperties();
+                        if (resource.WEB == null) 
+                            resource.WEB = new ResourceProperties();
+                        if (resource.LAN == null) 
+                            resource.LAN = new ResourceProperties();
+
+                        resource.SetFromProtocolString();
+                        resource.SetActionString();
                         resourceCollection.resoures.Add(resource);
                     }
                 }
